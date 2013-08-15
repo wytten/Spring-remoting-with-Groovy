@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+     version="2.4">
+     
+	<session-config>
+	  <session-timeout>60</session-timeout>
+	</session-config>
+
+	<!-- <context-param> -->
+	<!-- 	<param-name>contextConfigLocation</param-name> -->
+	<!-- 	<param-value> -->
+	<!-- 		classpath:META-INF/spring/applicationContext.xml -->
+	<!-- 	</param-value> -->
+	<!-- </context-param> -->
+
+	<!-- <filter> -->
+	<!-- 	<filter-name>RemoteServiceFilter</filter-name> -->
+	<!-- 	<filter-class>org.wyttenbach.dale.remote.server.RemoteServiceFilter</filter-class> -->
+	<!-- </filter> -->
+
+	<!-- <filter-mapping> -->
+	<!-- 	<filter-name>RemoteServiceFilter</filter-name> -->
+	<!-- 	<url-pattern>/remoting/*</url-pattern> -->
+	<!-- </filter-mapping> -->
+	
+	<!-- <listener> -->
+	<!-- 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
+	<!-- </listener> -->
+
+	<servlet>
+		<servlet-name>remoting</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:remoting-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>remoting</servlet-name>
+		<url-pattern>/remoting/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>
