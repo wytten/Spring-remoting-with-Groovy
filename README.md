@@ -8,9 +8,12 @@ Spring-remoting-with-Groovy
 This will create a web application in spring-remote-server,
 and an executable jar in spring-remote-client.
     
+
 ### Start server
 
     (cd spring-remote-server; mvn jetty:run)
+
+
 ### Run client
 
 In another window:
